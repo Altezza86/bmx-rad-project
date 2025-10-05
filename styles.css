@@ -1,0 +1,135 @@
+/* Week 5 — CSS3 */
+:root{ --ink:#222; --bg:#fafafa; --accent:#0a66c2 }
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  margin:0;
+  padding:0;
+}
+
+main{
+  max-width:900px;
+  margin:20px auto;      /* keeps content centered */
+  padding:0 24px;        /* side spacing so text doesn’t touch edges */
+}
+
+header, nav, section, article, aside, footer{margin-bottom:16px}
+
+header{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:12px;
+  animation:fade .8s ease-in;
+}
+
+nav{background:var(--accent);border-radius:8px}
+nav ul{list-style:none;display:flex;gap:8px;justify-content:center;padding:8px}
+nav a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:6px;transition:transform .2s ease}
+nav a:hover{transform:translateY(-2px)}
+nav a[aria-current="page"]{background:rgba(255,255,255,.2)}
+
+section, article, aside{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:8px;
+  padding:12px 12px 12px 24px;
+}
+
+figure{margin:10px auto;text-align:center}
+img{max-width:100%;border-radius:6px}
+
+footer{padding:12px;text-align:center;color:#555}
+
+@keyframes fade{from{opacity:0}to{opacity:1}} /* advanced #1 */
+
+.button{
+   display: inline-block;
+  background: #0a66c2;         /* blue fill */
+  color: #fff;                 /* white text */
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #084a8f;          /* darker blue on hover */
+  transform: translateY(-2px);
+}
+
+input,textarea{
+  width:100%;
+  padding:8px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  margin:4px 0;
+}
+
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{border:1px solid #e5e5e5;padding:6px;text-align:left}
+
+/* === Drag & Drop presets === */
+.drags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+.drag-chip {
+  background:#fff;
+  border:1px solid #ccc;
+  border-radius:8px;
+  padding:6px 10px;
+  cursor:grab;
+  user-select:none;
+}
+.drag-chip:active {
+  cursor:grabbing;
+}
+.dropzone {
+  border:2px dashed #0a66c2;
+  border-radius:10px;
+  padding:12px;
+  margin-top:10px;
+  background:#f0f6ff;
+  text-align:center;
+}
+.dropzone.drag-over {
+  background:#e2efff;
+  border-color:#084a8f;
+}
+
+/* === BMX Brand Logos Grid === */
+.brand-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.brand-logos img {
+  width: 140px;               /* consistent logo width */
+  height: 80px;               /* fixed height area */
+  object-fit: contain;        /* scales each logo nicely inside */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.brand-logos img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Jason Deming">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gear + Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Gearing Notes & Calculator</h1>
+    <p><small>Start with a baseline, change one thing at a time, log your 0–60&nbsp;ft.</small></p>
+  </header>
+
+  <nav id="nav" aria-label="Main">
+    <ul>
+      <li><a href="DemingJasonAssignment5.html">Home</a></li>
+      <li><a href="gear.html" aria-current="page">Gear + Calculator</a></li>
+      <li><a href="brands.html">BMX Brands</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>Notes</h2>
+      <article>
+      <h3>Baseline Setup</h3>
+      
+        <p>On 20×1.75, <strong>44/16</strong> is a solid baseline. If I spin out early, I go up a touch; if I bog on the first crank, I go down.</p>
+        <figure>
+          <img src="JDbmx.JPG" alt="Gate start posture">
+          <figcaption>Posture at the gate matters more than 0.2 teeth.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <section>
+      <h2>Gear Calculator</h2>
+      <article>
+       <h3>Calculator Form</h3>
+        <!-- IDs are important; app.js reads these -->
+        <form id="gear-form">
+          <label>Wheel Diameter (inches)
+            <input id="wheel" name="wheel" type="number" value="20" min="10" max="30" step="0.1" required>
+          </label>
+          <label>Front Chainring (teeth)
+            <input id="front" name="front" type="number" value="44" min="20" max="60" step="0.1" required>
+          </label>
+          <label>Rear Cog (teeth)
+            <input id="rear" name="rear" type="number" value="16" min="9" max="30" step="1" required>
+          </label>
+          <button class="button" type="submit">Compute</button>
+        </form>
+
+        <!-- Results injected by app.js -->
+        <div id="gear-out" style="margin-top:8px;"></div>
+
+        <p class="small" style="color:#555; margin-top:8px;">
+          Tip: If you expect ~55 as “rollout,” read the <em>Gear Inches</em> row. Bike-shop “rollout” = distance per pedal revolution (~4.39&nbsp;m for 44/16 on 20").
+        </p>
+      </article>
+    </section>
+
+<!-- === Drag & Drop Preset Section === -->
+<section>
+  <h2>Preset Gear Ratios</h2>
+  <article>
+    <h3>Drag a preset to auto-fill the calculator</h3>
+    <p>This tool lets riders quickly test popular BMX gear setups. Drag one of the presets into the blue drop zone, and the calculator will instantly update with that ratio.</p>
+
+    <div class="drags">
+      <div class="drag-chip" draggable="true" data-wheel="20" data-front="44" data-rear="16">44/16</div>
+      <div class="drag-chip" draggable="true" data-wheel="20" data-front="47" data-rear="17">47/17</div>
+      <div class="drag-chip" draggable="true" data-wheel="20" data-front="50" data-rear="18">50/18</div>
+    </div>
+
+    <div id="dropzone" class="dropzone">
+      Drop preset here
+    </div>
+  </article>
+</section>
+
+    <aside>
+      <h3>Quick Tip</h3>
+      <p>Change one variable at a time (stem, bar rise, or ring). Write down your 0–60&nbsp;ft split.</p>
+    </aside>
+
+    <!-- Back to Home button -->
+    <div style="text-align:center; margin-top:16px;">
+      <a class="button" href="DemingJasonAssignment5.html">Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Jason Deming</p>
+  </footer>
+
+  <!-- script last so DOM is ready -->
+  <script src="app.js"></script>
+</body>
+</html>
+
